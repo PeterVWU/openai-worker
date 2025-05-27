@@ -21,8 +21,6 @@ import OpenAI from 'openai';
 
 interface Env {
 	AI: Ai;
-	CLOUDFLARE_API_KEY?: string;
-	CLOUDFLARE_ACCOUNT_ID?: string;
 }
 
 export default {
@@ -211,7 +209,7 @@ async function handleEmbeddings(request: Request, env: Env, corsHeaders: Record<
 	}
 
 	const body = await request.json() as any;
-	const { input, model = '@cf/meta/llama-3.3-70b-instruct-fp8-fast' } = body;
+	const { input, model = '@cf/baai/bge-large-en-v1.5' } = body;
 
 	if (!input) {
 		return new Response(
