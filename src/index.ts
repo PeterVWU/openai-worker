@@ -122,7 +122,7 @@ async function handleChatCompletions(request: Request, env: Env, corsHeaders: Re
 	}
 
 	const body = await request.json() as any;
-	const { messages, model = '@cf/meta/llama-3.1-8b-instruct', stream = false, ...otherParams } = body;
+	const { messages, model = '@cf/meta/llama-3.3-70b-instruct-fp8-fast', stream = false, ...otherParams } = body;
 
 	if (!messages || !Array.isArray(messages)) {
 		return new Response(
@@ -286,7 +286,7 @@ function handleModels(corsHeaders: Record<string, string>): Response {
 		object: 'list',
 		data: [
 			{
-				id: '@cf/meta/llama-3.1-8b-instruct',
+				id: '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
 				object: 'model',
 				created: 1677610602,
 				owned_by: 'cloudflare'
